@@ -1,0 +1,3 @@
+title: "Attention sinks vs. register tokens in a small causal LM"
+description: "An eight-arm controlled study: softmax, softpick, softmax-1, interleaved registers, and a gated write/read memory channel"
+theme: jekyll-theme-cayman

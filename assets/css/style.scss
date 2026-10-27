@@ -1,0 +1,7 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+.main-content table { display: block; overflow-x: auto; max-width: 100%; font-size: 0.85rem; }
+.main-content img { max-width: 100%; height: auto; }

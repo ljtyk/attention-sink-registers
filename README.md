@@ -57,7 +57,7 @@ Higher effective rank / lower cosine similarity = representations stay spread ac
 
 ## Massive activations
 
-| Arm | kurt@token0 (max) | kurt real (mean) | kurt registers (max) | max\|act\|@token0 | max\|act\| real | max\|act\| registers |
+| Arm | kurt@token0 (max) | kurt real (mean) | kurt registers (max) | max abs act @token0 | max abs act real | max abs act registers |
 |---|---|---|---|---|---|---|
 | A  softmax | 17.2 | 4.6 | n/a | 33.2 | 2.9 | n/a |
 | B  softpick | 4.8 | 3.3 | n/a | 7.6 | 3.0 | n/a |
@@ -72,7 +72,7 @@ Higher effective rank / lower cosine similarity = representations stay spread ac
 
 Dedicated cross-attention write (register queries the causal prefix) and read (real tokens query the registers), added on top of an otherwise unchanged self-attention stack (A's for M, AL's for ML). `tanh(gate)` scales the read output added to the residual and starts at exactly 0 (offered, not forced) — its learned value is the direct usage signal, not a proxy.
 
-| Arm | probe val | max\|gate\| | mass→registers (all / steady-state) | mass→phantom | kurtosis (registers) | norm (registers vs real) |
+| Arm | probe val | max abs gate | mass→registers (all / steady-state) | mass→phantom | kurtosis (registers) | norm (registers vs real) |
 |---|---|---|---|---|---|---|
 | M  softmax + gated memory channel | 3.711 | 0.0280 | 0.350 / 0.525 | 0.650 | 0.54 | 7.7 vs 12.8 |
 | ML  local window 128 + gated memory channel | 3.775 | 0.1735 | 0.279 / 0.406 | 0.721 | 0.19 | 10.3 vs 13.2 |
